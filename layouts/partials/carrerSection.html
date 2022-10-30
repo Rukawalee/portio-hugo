@@ -18,16 +18,18 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="tab-content ">
+                <div class="tab-content clearfix">
                     <div class="resume__education tab-pane active" id="{{.tab1Target}}">
                         {{ $Section := .education }}
                         {{ range $Section }}
                         <div class="resume__education_item">
                             <span class="pre-line text-primary"> {{ .time }} </span>
+                            <div class="h6 float-right mt-2">
+                                {{ .major }}
+                            </div>
                             {{ .content | markdownify }}
                         </div>
                         {{ end }}
-
                     </div>
 
                     <div class="resume__education tab-pane" id="{{.tab2Target}}">
@@ -35,6 +37,9 @@
                         {{ range $Section }}
                         <div class="resume__education_item">
                             <span class="pre-line text-primary"> {{ .time }} </span>
+                            <div class="h6 float-right mt-2">
+                                {{ .station }}
+                            </div>
                             {{ .content | markdownify }}
                         </div>
                         {{ end }}
