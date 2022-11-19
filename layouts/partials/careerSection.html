@@ -1,6 +1,6 @@
-{{ with .Site.Data.carrerSection }}
+{{ with .Site.Data.careerSection }}
 {{ if .enable }}
-<section class="section resume" id="resume">
+<section class="section resume" id="career">
     <div class="resume__background"></div>
     <div class="container">
         <div class="row">
@@ -30,19 +30,26 @@
                             {{ .content | markdownify }}
                             {{ if .prizes }}
                             <div>
-                                <span class="pre-line h6">荣誉奖项</span>
-                                {{ $Prize := .prizes}}
-                                {{ range $Prize }}
-                                <button class="btn btn-outline-secondary btn-sm m-1 rounded-pill">
-                                    {{ if .icon }}
-                                    <i class="{{ .icon }}"></i> | 
+                                <div class="border-bottom">
+                                    <div class="badge badge-pill badge-success"> 
+                                        <i class="fa-solid fa-trophy"></i>
+                                        荣誉奖章
+                                    </div>
+                                </div>
+                                <div class="mt-1">
+                                    {{ $Prize := .prizes}}
+                                    {{ range $Prize }}
+                                    <button class="btn btn-outline-secondary btn-sm m-1 rounded-pill pt-0 pb-0">
+                                        {{ if .icon }}
+                                        <i class="{{ .icon }}"></i> | 
+                                        {{ end }}
+                                        {{ if .iconUrl }}
+                                        <img src="{{ .iconUrl }}" width="18" /> | 
+                                        {{ end }}
+                                        {{ .name }}
+                                    </button>
                                     {{ end }}
-                                    {{ if .iconUrl }}
-                                    <img src="{{ .iconUrl }}" width="18" /> | 
-                                    {{ end }}
-                                    {{ .name }}
-                                </button>
-                                {{ end }}
+                                </div>
                             </div>
                             {{ end }}
                         </div>
