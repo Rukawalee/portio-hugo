@@ -28,6 +28,23 @@
                                 {{ .major }}
                             </div>
                             {{ .content | markdownify }}
+                            {{ if .prizes }}
+                            <div>
+                                <span class="pre-line h6">荣誉奖项</span>
+                                {{ $Prize := .prizes}}
+                                {{ range $Prize }}
+                                <button class="btn btn-outline-secondary btn-sm m-1 rounded-pill">
+                                    {{ if .icon }}
+                                    <i class="{{ .icon }}"></i> | 
+                                    {{ end }}
+                                    {{ if .iconUrl }}
+                                    <img src="{{ .iconUrl }}" width="18" /> | 
+                                    {{ end }}
+                                    {{ .name }}
+                                </button>
+                                {{ end }}
+                            </div>
+                            {{ end }}
                         </div>
                         {{ end }}
                     </div>
