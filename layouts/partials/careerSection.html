@@ -65,6 +65,30 @@
                                 {{ .station }}
                             </div>
                             {{ .content | markdownify }}
+                            {{ if .prizes }}
+                            <div>
+                                <div class="border-bottom">
+                                    <div class="badge badge-pill badge-success"> 
+                                        <i class="fa-solid fa-trophy"></i>
+                                        荣誉奖章
+                                    </div>
+                                </div>
+                                <div class="mt-1">
+                                    {{ $Prize := .prizes}}
+                                    {{ range $Prize }}
+                                    <button class="btn btn-outline-secondary btn-sm m-1 rounded-pill pt-0 pb-0">
+                                        {{ if .icon }}
+                                        <i class="{{ .icon }}"></i> | 
+                                        {{ end }}
+                                        {{ if .iconUrl }}
+                                        <img src="{{ .iconUrl }}" width="18" /> | 
+                                        {{ end }}
+                                        {{ .name }}
+                                    </button>
+                                    {{ end }}
+                                </div>
+                            </div>
+                            {{ end }}
                         </div>
                         {{ end }}
                     </div>
