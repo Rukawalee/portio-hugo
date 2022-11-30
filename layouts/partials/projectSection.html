@@ -1,6 +1,6 @@
-{{ with .Site.Data.portfolioSection }}
+{{ with .Site.Data.projectSection }}
 {{ if .enable }}
-<section class="section portfolio" id="portfolio">
+<section class="section portfolio" id="project">
   <div class="container">
     <div class="row text-center">
       <div class="col-lg-6 offset-lg-3">
@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-12">
         <div class="portfolio-item-grid">
-          {{ range (where $.Site.RegularPages "Type" "portfolio").Reverse }}
+          {{ range (where $.Site.RegularPages "Type" "project").Reverse }}
           <div class="portfolio-item">
             <img src="{{ .Params.thumbnail }}" class="portfolio-item-thumb" alt="portfolio-thumb" />
             <div class="portfolio-item-content">
