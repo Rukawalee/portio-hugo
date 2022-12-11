@@ -23,7 +23,10 @@
                         {{ $Section := .education }}
                         {{ range $Section }}
                         <div class="resume__education_item">
-                            <span class="pre-line text-primary"> {{ .time }} </span>
+                            <span class="pre-line text-primary"> 
+                                {{ .time }} 
+                                <span class="float-right badge badge-pill badge-secondary text-light font-italic h3">{{ .duration }}</span>
+                            </span>
                             <div class="h6 float-right mt-2 font-weight-bold">
                                 {{ .major }}
                             </div>
@@ -60,7 +63,10 @@
                         {{ $Section := .experience }}
                         {{ range $Section }}
                         <div class="resume__education_item">
-                            <span class="pre-line text-primary"> {{ .time }} </span>
+                            <span class="pre-line text-primary"> 
+                                {{ .time }} 
+                                <span class="float-right badge badge-pill badge-secondary text-light font-italic h3">{{ .duration }}</span>
+                            </span>
                             <div class="h6 float-right mt-2 font-weight-bold">
                                 {{ .station }}
                             </div>
