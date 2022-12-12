@@ -43,14 +43,25 @@
                     </div>
                     {{ $section := .skill }}
                     {{ range $section }}
-                    <div class="skill__progress_item">
+                    <div class="mb-2">
+                        <label class="ml-3 bg-white pl-2 pr-2">{{ .title }}</label>
+                        {{ if .langs }}
+                        <div class="border rounded-lg mt-n4 p-1 pt-2 pl-3 pr-3 text-dark">
+                            {{ $langs := .langs }}
+                            {{ range $langs }}
+                            {{ .lang }}
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                    <!-- <div class="skill__progress_item">
                         <span class="d-inline-block text-dark"> {{ .title }} </span>
                         <div class="progress-value float-right"><span>{{ .percent }}</span>%</div>
                         <div class="progress">
                             <div class="progress-bar" style="width:{{ .percent }}%;" aria-valuemin="0"
                                 aria-valuemax="{{ .percent }}"></div>
                         </div>
-                    </div>
+                    </div> -->
                     {{ end }}
                 </div>
             </div>
