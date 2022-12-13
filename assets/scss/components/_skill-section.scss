@@ -63,6 +63,9 @@
   &__float_box_font {
     font-size: .9rem;
   }
+  &__float_box_icon {
+    color: #000;
+  }
   &__progress {
     margin-left: 40px;
     @include desktop {
