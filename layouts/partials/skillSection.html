@@ -41,19 +41,24 @@
                         <span class="top-title pre-line">{{ .topTitle }}</span>
                         {{ .content | markdownify }}
                     </div>
+                    {{ if .skill }}
                     {{ $section := .skill }}
                     {{ range $section }}
-                    <div class="mb-2">
-                        <label class="ml-3 bg-white pl-2 pr-2">{{ .title }}</label>
+                    <div class="mb-3">
                         {{ if .langs }}
+                        <label class="ml-3 bg-white pl-2 pr-2 skill__float_box_font">{{ .title }}</label>
                         <div class="border rounded-lg mt-n4 p-1 pt-2 pl-3 pr-3 text-dark">
                             {{ $langs := .langs }}
                             {{ range $langs }}
                             {{ .lang }}
                             {{ end }}
                         </div>
+                        <label class="bg-white float-right mt-n3 pl-1">
+                            <i class="{{ .icon }}"></i>
+                        </label>
                         {{ end }}
                     </div>
+                    {{ end }}
                     <!-- <div class="skill__progress_item">
                         <span class="d-inline-block text-dark"> {{ .title }} </span>
                         <div class="progress-value float-right"><span>{{ .percent }}</span>%</div>

@@ -60,6 +60,9 @@
       }
     }
   }
+  &__float_box_font {
+    font-size: .9rem;
+  }
   &__progress {
     margin-left: 40px;
     @include desktop {
