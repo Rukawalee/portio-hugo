@@ -66,6 +66,9 @@
   &__float_box_icon {
     color: #343a40;
   }
+  &__lang_box_font {
+    font-size: 1rem;
+  }
   &__progress {
     margin-left: 40px;
     @include desktop {
