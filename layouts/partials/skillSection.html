@@ -47,10 +47,10 @@
                     <div class="mb-3">
                         {{ if .langs }}
                         <label class="ml-3 bg-white pl-2 pr-2 skill__float_box_font">{{ .title }}</label>
-                        <div class="border rounded-lg mt-n4 p-1 pt-2 pl-3 pr-3">
+                        <div class="border rounded-lg mt-n4 p-2 pt-3 pl-3 pr-3">
                             {{ $langs := .langs }}
                             {{ range $langs }}
-                            <button class="btn btn-light btn-sm m-1 rounded-pill pt-0 pb-0 text-secondary border">
+                            <button class="btn btn-light btn-sm rounded-pill pt-0 pb-0 text-secondary border">
                                 {{ if .icon }}
                                 <span class="badge badge-light skill__lang_box_font p-0 pl-1 pr-1">
                                     <i class="{{ .icon }} text-danger p-0"></i>
