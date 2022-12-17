@@ -51,11 +51,6 @@
                             {{ $langs := .langs }}
                             {{ range $langs }}
                             <button class="btn btn-light btn-sm rounded-pill pt-0 pb-0 text-secondary border">
-                                {{ if .icon }}
-                                <span class="badge badge-light skill__lang_box_font p-0 pl-1 pr-1">
-                                    <i class="{{ .icon }} text-danger p-0"></i>
-                                </span>
-                                {{ end }}
                                 {{ if .iconUrl }}
                                 <span class="badge badge-light p-0 pl-1 pr-1">
                                     <img class="p-0" width="18px" src="{{ .iconUrl }}" />
