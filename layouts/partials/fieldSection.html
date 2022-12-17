@@ -23,7 +23,7 @@
     </div>
 
     <div class="service__background_pattern">
-        <img src="images/service/background-pattern.svg" alt="background-pattern">
+        <img src="images/field/background-pattern.svg" alt="background-pattern">
     </div>
 
     <div class="container">
@@ -35,11 +35,20 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        {{ if .fields }}
+        {{ $Fields := .fields }}
+        {{ range $Fields }}
+        <div class="row mt-5">
             <div class="col-12">
+                {{ if .name }}
+                <div class="text-center h5">
+                    - {{ .name }} -
+                </div>
+                {{ end }}
                 <div class="service__slider">
-                    {{ $Section := .service }}
-                    {{ range $Section }}
+                    {{ if .field }}
+                    {{ $Field := .field }}
+                    {{ range $Field }}
                     <div class="service__slider_item">
                         <div class="service__slider_item-icon">
                             <div class="icon-background">
@@ -51,7 +60,9 @@
                                 </svg>
                             </div>
                             <div class="icon">
-                                <img src=" {{ .image | absURL }} " alt="ui-ux">
+                                {{ if .image }}
+                                <img src=" {{ .image | absURL }} " width="86" />
+                                {{ end }}
                             </div>
                         </div>
                         <div class="mt-5">
@@ -59,9 +70,12 @@
                         </div>
                     </div>
                     {{ end }}
+                    {{ end }}
                 </div>
             </div>
         </div>
+        {{ end }}
+        {{ end }}
     </div>
 </section>
 {{ end }}
