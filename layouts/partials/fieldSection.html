@@ -65,8 +65,36 @@
                                 {{ end }}
                             </div>
                         </div>
-                        <div class="mt-5">
+                        <div class="#mt-3">
                             {{ .content | markdownify }}
+                        </div>
+                        <div class="skill__progress_item">
+                            <div class="progress">
+                                <div class="progress-bar" style="width:{{ .percent }}%;" aria-valuemin="0"
+                                    aria-valuemax="{{ .percent }}"></div>
+                            </div>
+                            {{ if eq .percent 100 }}
+                            <div class="text-success">
+                            <span class="d-inline-block"> 
+                                done.
+                            </span>
+                            {{ end }}
+                            {{ if lt .percent 100 }}
+                            {{ if gt .percent 0 }}
+                            <div class="text-primary">
+                            <span class="d-inline-block">
+                                updating...
+                            </span>
+                            {{ end }}
+                            {{ if le .percent 0 }}
+                            <div>
+                            <span class="d-inline-block"></span>
+                                waite.
+                            </span>
+                            {{ end }}
+                            {{ end }}
+                            <div class="progress-value float-right"><span>{{ .percent }}</span>%</div>
+                            </div>
                         </div>
                     </div>
                     {{ end }}
