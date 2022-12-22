@@ -50,6 +50,13 @@
                     {{ $Field := .field }}
                     {{ range $Field }}
                     <div class="service__slider_item">
+                        {{ if .url }}
+                        <button class="float-right btn btn-sm btn-light text-secondary rounded-pill">
+                            <a href="{{ .url }}" target="_blank" class="text-secondary">
+                                more <i class="fa-solid fa-link"></i>
+                            </a>
+                        </button>
+                        {{ end }}
                         <div class="service__slider_item-icon">
                             <div class="icon-background">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="122.457" height="109.702"
@@ -66,7 +73,17 @@
                             </div>
                         </div>
                         <div>
-                            {{ .content | markdownify }}
+                            <div class="h4">
+                                {{ .title }}
+                            </div>
+                            {{ if .contents }}
+                            <ul class="text-secondary">
+                                {{ $Content := .contents }}
+                                {{ range $Content }}
+                                <li>{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                            {{ end }}
                         </div>
                         <div class="skill__progress_item mt-3">
                             <div class="progress">
