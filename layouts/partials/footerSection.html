@@ -87,8 +87,9 @@
 		<div class="row footer__footer">
 			<div class="col-lg-6">
 				<div class="footer__footer_copy text-light">
-					<p>Copyright {{ dateFormat "2006" now }} - All Rights Reserved by <a class="text-light"
-							href="{{ $.Site.BaseURL }}" target="_blank">{{ .Site.Params.author }}</a></p>
+					<p>
+						{{ replace .Site.Params.copyright "{year}" now.Year }}
+					</p>
 				</div>
 			</div>
 			<div class="col-lg-6">
