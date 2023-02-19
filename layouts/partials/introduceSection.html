@@ -29,7 +29,14 @@
           </div>
           <div class="mb-5">
             <span class="top-title pre-line">{{ .topTitle }}</span>
-            {{ .content | markdownify }}
+            {{ $workDate := time .workDate  }}
+            {{ $workedMS := sub now.Unix $workDate.Unix }}
+            {{ $workedDate := time $workedMS }}
+            {{ $sourceDate := time 0 }}
+            {{ $workedYear := sub $workedDate.Year $sourceDate.Year }}
+            {{ $workedInYear := math.Ceil (mul 10 (div $workedDate.Month 12.0)) }}
+            {{ $workedYears := printf "%d.%.0f" $workedYear $workedInYear }}
+            {{ (replace .content "{workedYears}" $workedYears) | markdownify }}
           </div>
           <a type="button" class="btn btn-lg btn-primary btn-zoom" target="_blank"
             href="{{ .buttonURL | absURL }}">{{ .buttonName }}</a>
